@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
+  const HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(  // Removed MaterialApp since it should only be in main.dart
-      backgroundColor: const Color.fromARGB(255, 2, 39, 68),
-      body: Column(
+    return Container(
+      color: const Color.fromARGB(255, 2, 39, 68), // ← set background
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 75),
@@ -18,7 +20,7 @@ class HomePage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black, // Improved shadow
+                    color: Colors.black,
                     blurRadius: 15,
                     spreadRadius: 1,
                   ),
@@ -27,21 +29,20 @@ class HomePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Better spacing
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    // Existing Alarm Text
                     Column(
                       children: [
                         Text(
                           'Current Alarm',
                           style: TextStyle(
-                            fontSize: 32,  // Slightly smaller
+                            fontSize: 32,
                             color: Colors.grey[700],
                             fontWeight: FontWeight.w500,
                           ),
                         ),
                         const SizedBox(height: 8),
-                        Text(
+                        const Text(
                           '00:00 AM/PM',
                           style: TextStyle(
                             fontSize: 32,
@@ -51,12 +52,10 @@ class HomePage extends StatelessWidget {
                         ),
                       ],
                     ),
-                  
                   ],
                 ),
               ),
             ),
-            
           ),
         ],
       ),

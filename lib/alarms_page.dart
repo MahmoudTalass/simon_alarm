@@ -5,23 +5,17 @@ class AlarmsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Alarms')),
-      body: AlarmListing(),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.alarm), label: 'Alarms'),
-          BottomNavigationBarItem(icon: Icon(Icons.timer), label: 'Timer'),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+    return Column(
+      children: const [
+        Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Text(
+            'Alarms',
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
           ),
-        ],
-        currentIndex: 0,
-        onTap: (index) {
-          // Handle navigation
-        },
-      ),
+        ),
+        Expanded(child: AlarmListing()),
+      ],
     );
   }
 }
@@ -42,7 +36,7 @@ class _AlarmListingState extends State<AlarmListing> {
   @override
   Widget build(BuildContext context) {
     return alarms.isEmpty
-        ? Center(child: Text('No alarms set'))
+        ? const Center(child: Text('No alarms set'))
         : ListView.builder(
           itemCount: alarms.length,
           itemBuilder: (context, index) {
@@ -73,7 +67,7 @@ class AlarmCard extends StatelessWidget {
         title: Text(label),
         subtitle: Text(time),
         trailing: IconButton(
-          icon: Icon(Icons.delete),
+          icon: const Icon(Icons.delete),
           onPressed: () {
             // Handle delete action
           },
